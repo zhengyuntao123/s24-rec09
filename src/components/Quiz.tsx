@@ -10,8 +10,10 @@ interface QuizState {
   score: number
 }
 
+// quizCore不能放在Quiz 组件内，否则会被反复初始化！！！
+const quizCore=new QuizCore();
+
 const Quiz: React.FC = () => {
-  const quizCore=new QuizCore();
   const [currentQuestion,setCurrentQuestion] = useState(quizCore.getCurrentQuestion());
   const [selectedAnswer,setSelectedAnswer] = useState<string|null>(null);
 
